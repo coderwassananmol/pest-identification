@@ -1,0 +1,123 @@
+
+
+#collapse{
+    font-size: 32px;
+    cursor: pointer;
+    padding: 16px;
+    padding-top: 15px;
+    padding-bottom: 20x;
+    border-radius: 50%;
+    position: fixed;
+    top: 29px;
+    right: 66px;
+}
+
+div.col-lg-4.image
+{
+    min-height : 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.4;
+    margin-top: 50vh;
+}
+
+.img:hover {
+    animation: shake 0.5s;
+    animation-iteration-count: infinite;
+  }
+
+.links{
+    font-size: 50px;
+    color:black;
+    text-decoration: none;
+    font-family: 'Righteous', cursive;  
+}
+
+.heading{
+    text-align: center;
+    padding-top: 2%;
+}
+
+.para{
+    padding-top: 10%;
+    margin-left: 40%;
+
+}
+
+.btn btn-danger{
+    padding-left:70%;
+    padding-top:20%;
+}
+
+.navigation {
+    margin: 25px 0;
+    display: block;
+    width: 200px;
+    text-align: center;
+    margin-left: 10px;
+}
+
+.navigationitem {
+    font-weight: 200;
+    font-family: Open Sans;
+    color:white;
+    padding: 15px 0;
+    box-sizing: border-box;
+    font-size: 25px;
+    border-bottom: solid 1px palevioletred;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.togglemenu {
+    position: fixed;
+    padding: 16px;
+    padding-top: 15px;
+    padding-bottom: 20px;
+    border-radius: 0%;
+    top: 29px;
+    right: 66px;
+    margin-top: 10px;
+    color: black;
+    cursor: pointer;
+    background-color: aqua;
+    z-index: 500;
+    font-size: 1em;
+    opacity: 0; 
+}
+
+.sidebarmenu {
+    position: fixed;
+    border-radius: 0%;
+    top:0px;
+    right: 0px;
+    margin-top: 0px;
+    width: 250px;
+    overflow: hidden;
+    height: 100vh;
+    max-height: 100vh;
+    background-color:black;
+    opacity: 0.9;
+    transition: all 0.3s ease-in-out;
+}
+
+fa-times:hover {
+    opacity: 1;
+}
+
+.fa-times {
+    left: 10px;
+    top: 10px;
+    opacity: 0.7;
+    cursor:pointer;
+    position: absolute;
+    color: white;
+    transition: all 0.3s ease-in-out;
+    size:7x;
+}
+
+.center {
+    text-align: center;
+}
+
+
