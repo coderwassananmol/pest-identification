@@ -12,6 +12,7 @@
     right: 66px;
 }
 
+
 div.col-lg-4.image
 {
     min-height : 100vh;
@@ -21,21 +22,12 @@ div.col-lg-4.image
     margin-top: 50vh;
 }
 
-.img:hover {
-    animation: shake 0.5s;
-    animation-iteration-count: infinite;
-  }
 
-.links{
-    font-size: 50px;
-    color:black;
-    text-decoration: none;
-    font-family: 'Righteous', cursive;  
-}
 
 .heading{
     text-align: center;
     padding-top: 2%;
+
 }
 
 .para{
@@ -64,9 +56,9 @@ div.col-lg-4.image
     padding: 15px 0;
     box-sizing: border-box;
     font-size: 25px;
-    border-bottom: solid 1px palevioletred;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .togglemenu {

@@ -7,7 +7,8 @@ import { PestDetectComponent } from './pest-detect/pest-detect.component';
 import { FaqsComponent } from './faqs/faqs.component';
 import { HelpComponent } from './help/help.component';
 import { AppRoutingModule } from './app-routing.module';
-
+import { DocumentationComponent } from './documentation/documentation.component';
+import {RouterModule} from '@angular/router';
 
 
 @NgModule({
@@ -18,12 +19,17 @@ import { AppRoutingModule } from './app-routing.module';
     PestDetectComponent,
     FaqsComponent,
     HelpComponent,
-    ],
+    DocumentationComponent,
+  ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+
