@@ -9,6 +9,10 @@ import { HelpComponent } from './help/help.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DocumentationComponent } from './documentation/documentation.component';
 import {RouterModule} from '@angular/router';
+import { DocumentationService } from './documentation.service';
+import { HttpModule } from '@angular/http';
+import {FormsModule} from '@angular/forms';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 
 @NgModule({
@@ -20,13 +24,16 @@ import {RouterModule} from '@angular/router';
     FaqsComponent,
     HelpComponent,
     DocumentationComponent,
+    FeedbackComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule
+    RouterModule,
+    HttpModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [DocumentationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

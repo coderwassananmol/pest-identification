@@ -1,0 +1,12 @@
+input.ng-invalid.ng-touched {
+    border:1px solid red;
+}
+h1{
+    text-align: center;
+    padding-top: 40px;
+    
+}
+.container{
+    margin-bottom:50px;
+}
+
