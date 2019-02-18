@@ -11,6 +11,10 @@ import { DocumentationComponent } from './documentation/documentation.component'
 import {RouterModule} from '@angular/router';
 import { SubfaqsComponent } from './faqs/subfaqs/subfaqs.component';
 
+import { DocumentationService } from './documentation.service';
+import { HttpModule } from '@angular/http';
+import {FormsModule} from '@angular/forms';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 
 @NgModule({
@@ -23,13 +27,16 @@ import { SubfaqsComponent } from './faqs/subfaqs/subfaqs.component';
     HelpComponent,
     DocumentationComponent,
     SubfaqsComponent,
+    FeedbackComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule
+    RouterModule,
+    HttpModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [DocumentationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

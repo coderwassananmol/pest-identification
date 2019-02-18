@@ -14,13 +14,10 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    $(document).ready(function(){
-      $("i").click(function(){
-        $(".sidebarmenu").toggle();
+        $("i").click(function(){
+        $('.sidebarmenu').animate({width: 'toggle'}, 200);
     
-  })
-
-    });
+  });
   }
 
 }

@@ -84,12 +84,11 @@ div.col-lg-4.image
     top:0px;
     right: 0px;
     margin-top: 0px;
-    width: 250px;
+    width: 275px;
     overflow: hidden;
     height: 100vh;
     max-height: 100vh;
-    background-color:black;
-    opacity: 0.9;
+    background: linear-gradient(30deg,#000,#535050);
     transition: all 0.3s ease-in-out;
 }
 
