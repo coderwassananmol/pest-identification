@@ -9,6 +9,8 @@ import { HelpComponent } from './help/help.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DocumentationComponent } from './documentation/documentation.component';
 import {RouterModule} from '@angular/router';
+import { SubfaqsComponent } from './faqs/subfaqs/subfaqs.component';
+
 
 
 @NgModule({
@@ -20,6 +22,7 @@ import {RouterModule} from '@angular/router';
     FaqsComponent,
     HelpComponent,
     DocumentationComponent,
+    SubfaqsComponent,
   ],
   imports: [
     BrowserModule,

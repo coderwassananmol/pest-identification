@@ -9,7 +9,6 @@ const appRoutes:Routes=[
     {path:'',redirectTo:'/home',pathMatch:'full'},
     { path:'home',component:HomeComponent},
     { path:'pest-detect',component:PestDetectComponent},
-    { path:'home',component:HomeComponent},
     {path:'faqs',component:FaqsComponent},
     {path:'help',component:HelpComponent},
     {path:'documentation',component:DocumentationComponent}
