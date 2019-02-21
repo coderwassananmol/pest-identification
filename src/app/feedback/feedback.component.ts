@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { FormService } from '../form.service';
 
 @Component({
   selector: 'app-feedback',
@@ -7,6 +8,19 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./feedback.component.css']
 })
 export class FeedbackComponent  {
+  forms =[{
+    name : '',
+    email : '',
+
+  }
+    
+
+
+  ];
+
+  constructor(private formService:FormService){}
+
+
   @ViewChild('f') signupForm:NgForm;
   areas = ['center','corner','sides'];
   answer= '';
@@ -30,10 +44,23 @@ export class FeedbackComponent  {
     });
   }
 
-  onSubmit(){
-    this.signupForm.reset();
-    console.log(this.signupForm);
+  onSubmit(form : NgForm){
+    // this.signupForm.reset();
+    // console.log(this.signupForm);
+    this.formService.storeForms(form.value)
+    .subscribe(
+      (response) => console.log(response),
+      (error) => console.log(error)
+    );
 
+  }
+
+  onGet(){
+    this.formService.getForms()
+    .subscribe(
+      (response) => console.log(response),
+      (error) => console.log(error)
+    );
   }
 
 

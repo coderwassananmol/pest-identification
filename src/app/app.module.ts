@@ -9,12 +9,14 @@ import { HelpComponent } from './help/help.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DocumentationComponent } from './documentation/documentation.component';
 import {RouterModule} from '@angular/router';
-import { SubfaqsComponent } from './faqs/subfaqs/subfaqs.component';
-
-import { DocumentationService } from './documentation.service';
 import { HttpModule } from '@angular/http';
 import {FormsModule} from '@angular/forms';
 import { FeedbackComponent } from './feedback/feedback.component';
+import { FormService } from './form.service';
+import { DataStorageService } from './shared/data-storage.service';
+import {environment} from '../environments/environment';
+import {AngularFireModule} from 'angularfire2';
+import {AngularFirestoreModule} from 'angularfire2/firestore';
 
 
 @NgModule({
@@ -26,17 +28,19 @@ import { FeedbackComponent } from './feedback/feedback.component';
     FaqsComponent,
     HelpComponent,
     DocumentationComponent,
-    SubfaqsComponent,
     FeedbackComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule,
     HttpModule,
-    FormsModule
+    FormsModule,
+    AngularFirestoreModule,
+    AngularFireModule.initializeApp(environment.firebase,'angularfs')
   ],
-  providers: [DocumentationService],
+  providers: [FormService,DataStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

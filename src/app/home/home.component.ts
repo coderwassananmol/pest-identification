@@ -14,9 +14,10 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+        $('.sidebarmenu').hide();
         $("i").click(function(){
         $('.sidebarmenu').animate({width: 'toggle'}, 200);
-    
+
   });
   }
 
