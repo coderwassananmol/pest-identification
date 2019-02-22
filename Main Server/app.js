@@ -1,8 +1,9 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const routes = require('./routes/farmer');
-const models = require('./models/model');
+const farmerRoutes = require('./routes/farmer');
+
+
 
 const app = express();
 
@@ -10,11 +11,10 @@ app.set('view engine', 'ejs');
 app.set('views', 'views');
 
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));    
 
-app.use(routes);
-
-app.use('/home',(req,res,next)=>{
+app.use(farmerRoutes);
+app.use('/homepage',(req,res,next)=>{
     res.redirect('/');
 });
 

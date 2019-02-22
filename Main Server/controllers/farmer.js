@@ -5,7 +5,7 @@ exports.getMainPage = (req,res,next)=>{
     res.render('homepage');
 }
 exports.getAssociateWithUs = (req,res,next)=>{
-    res.sendFile(path.join(mainDir,'views','associateWITHus.html'));
+    res.render('associateWITHus');
 }
 exports.getCredits = (req,res,next)=>{
     res.sendFile(path.join(mainDir,'views','credits.html'));
