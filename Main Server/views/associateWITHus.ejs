@@ -2,48 +2,63 @@
 <html>
 
 <head>
-	<title>Associate With Us</title>
-	
+	<title>Associate With us</title>
+	<!-- Meta-Tags -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
-	<meta name="keywords" content="A webpage so that the scientist and curious paople can help us ">
-	<link rel="stylesheet" href="/associateassets/css/main.css" />
-	
-	<link href="/associateassets/css/style.css" rel='stylesheet' type='text/css' />
-	
+	<meta name="keywords" content="Tool Sign In Form a Responsive Web Template, Bootstrap Web Templates, Flat Web Templates, Android Compatible Web Template, Smartphone Compatible Web Template, Free Webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design">
+	<!-- <link rel="stylesheet" href="associateassets/css/main.css" /> -->
+	<!-- //Meta-Tags -->
+	<!-- Stylesheets -->
+	<link href="associateassets/css/style.css" rel='stylesheet' type='text/css' />
+	<!--// Stylesheets -->
 </head>
 
 <body>
-	<div>
 
-		<header id="header">
-				<a class="logo" href="/">
-					<p><img src="/associateassets/images/_seheyogi logo white.png"/></p></a>
-				<nav>
-					<a href="#menu">Menu</a>
-				</nav>
-			</header>
+	<nav class="navbar">
 
-		
-			<nav id="menu">
-				<ul class="links">
-					<li><a href="/">Home</a></li>
-					<li><a href="#">How to use</a></li>
-					<li><a href="#">Documentation</a></li>
-					<li><a href="#">Associate with us</a></li>
-					<li><a href="#">Detect Pest</a></li>
-					<li><a href="#">FAQs</a></li>
-					<li><a href="#">Links</a></li>
-					<li><a href="#">Credits</a></li>
-					<li><a href="#">Feedback</a></li>
-				</ul>
-			</nav>
-		</div>
+		<div class="logo">
+				<a href="/"><img src="associateassets/images/_seheyogi logo white.png"/></a>
+			</div>
+
+	<span class="openslide">
+		<a href="#" id="black" onclick="openSlideMenu()">
+			<svg width="30" height="30">
+				<path d="M0,5  30,5" stroke="#fff"
+				stroke-width="5"/>
+				<path d="M0,14  30,14" stroke="#fff"
+				stroke-width="5"/>
+				<path d="M0,23  30,23" stroke="#fff"
+				stroke-width="5"/>
+			</svg>
+			
+		</a>
+	</span>
+
+</nav>
+
+<div id="slide-menu" class="side-nav">
+	<ul>
+	<li><a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a></li>
+	<li><a  class="links" href="/" >Home</a></li>
+		<li><a class="links" href="/howTOuse" >How to use</a></li>
+		<li><a class="links" href="detectpest" >Detect pest</a></li>
+		<li><a class="links" href="/associateWITHus" >Associate with us</a></li>
+		<li><a class="links" href="/faqs" >Faqs</a></li>
+		<li><a class="links" href="/links" >Links and Resources</a></li>
+		<li><a class="links" href="/feedback" >Feedback</a></li>
+		<li><a class="links" href="/documentation" >Documentation</a>
+</ul>
+</div>
+
+
 		<div class="maindiv" >
 
 	<h1>Associate With Us </h1>
 	<div class="w3ls-login box box--big">
-			<form action="#" method="post">
+		<!-- form starts here -->
+		<form action="#" method="post">
 			<div class="agile-field-txt">
 					<label>Name</label>
 					<input type="text" name="name" placeholder="Enter Name" required="" />
@@ -58,15 +73,15 @@
 			
 				<div class="agile_label">
 					<input id="check1" name="check3" type="radio" value="Researcher">
-					 
+					 <!-- onclick="myFunction()" -->
 					<label class="check" for="check3">Researcher</label>
 
 					<input id="check2" name="check3" type="radio" value="Researcher">
-					 
+					 <!-- onclick="myFunction()" -->
 					<label class="check" for="check3">Farmer</label>
 
 					<input id="check3" name="check3" type="radio" value="Researcher">
-					 
+					 <!-- onclick="myFunction()" -->
 					<label class="check" for="check3">Other</label>
 
 
@@ -78,13 +93,24 @@
 		</form>
 	</div>
 
-			
-			<script src="/associateassets/js/jquery.min.js"></script>
-			<script src="/associateassets/js/browser.min.js"></script>
-			<script src="/associateassets/js/breakpoints.min.js"></script>
-			<script src="/associateassets/js/util.js"></script>
-			<script src="/associateassets/js/main.js"></script>
+			<!-- Scripts
+			<script src="associateassets/js/jquery.min.js"></script>
+			<script src="associateassets/js/browser.min.js"></script>
+			<script src="associateassets/js/breakpoints.min.js"></script>
+			<script src="associateassets/js/util.js"></script>
+			<script src="associateassets/js/main.js"></script> -->
 
 		</div>
+		<script>
+            function openSlideMenu() {
+                document.getElementById('slide-menu').style.width='300px';
+            }
+
+            function closeSlideMenu() {
+                document.getElementById('slide-menu').style.width='0';
+            }
+
+        </script>
+
 </body>
 </html>

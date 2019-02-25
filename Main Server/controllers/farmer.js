@@ -8,23 +8,23 @@ exports.getAssociateWithUs = (req,res,next)=>{
     res.render('associateWITHus');
 }
 exports.getCredits = (req,res,next)=>{
-    res.sendFile(path.join(mainDir,'views','credits.html'));
+    res.render('credits');
 }
 exports.getDocumentation = (req,res,next)=>{
-    res.sendFile(path.join(mainDir,'views','documentation.html'));
+    res.render('documentation');
 }
 exports.getFaq = (req,res,next)=>{
-    res.sendFile(path.join(mainDir,'views','faq.html'));
+    res.render('faqs');
 }
 exports.getFeedback = (req,res,next)=>{
-    res.sendFile(path.join(mainDir,'views','feedback.html'));
+    res.render('feedback');
 }
 
 exports.getHowToUse = (req,res,next)=>{
     res.sendFile(path.join(mainDir,'views','howTOuse.html'));
 }
 exports.getLinks = (req,res,next)=>{
-    res.sendFile(path.join(mainDir,'views','links.html'));
+    res.render('links');
 }
 exports.getQuestionPage = (req,res,next)=>{
     res.sendFile(path.join(mainDir,'views','questionpage.html'));

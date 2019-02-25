@@ -48,6 +48,6 @@ router.get('/documentation/:name', function(req, res, next) {
   });  
 });
 
-router.get('/faq',farmerController.getFaq);
+router.get('/faqs',farmerController.getFaq);
 
 module.exports = router; 
