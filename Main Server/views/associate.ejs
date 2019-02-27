@@ -13,7 +13,7 @@
 	<nav class="navbar">
 
 		<div class="logo">
-			<a><img src="/associateassets/images/_seheyogi logo white.png"/></a>
+			<a class="logo" href="/"><img src="/associateassets/images/_seheyogi logo white.png"/></a>
 		</div>
 
 		<span class="openslide">
@@ -33,14 +33,14 @@
 	<div id="slide-menu" class="side-nav">
 		<ul>
 			<li><a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a></li>
-			<li><a  class="links" href="#" >Home</a></li>
-			<li><a class="links" href="#" >How to use</a></li>
-			<li><a class="links" href="#" >Detect pest</a></li>
-			<li><a class="links" href="#" >Associate with us</a></li>
-			<li><a class="links" href="#" >Faqs</a></li>
-			<li><a class="links" href="#" >Links and Resources</a></li>
-			<li><a class="links" href="#" >Feedback</a></li>
-			<li><a class="links" href="#" >Documentation</a>
+			<li><a  class="links" href="/" >Home</a></li>
+			<li><a class="links" href="/howtouse" >How to use</a></li>			
+			<li><a class="links" href="/documentation" >Documentation</a>
+			<li><a class="links" href="/detectpest" >Detect pest</a></li>
+			<li><a class="links" href="/associatewithus" >Associate with us</a></li>
+			<li><a class="links" href="/faqs" >Faqs</a></li>
+			<li><a class="links" href="/links" >Links and Credits</a></li>
+			<li><a class="links" href="/feedback" >Feedback</a></li>
 		</ul>
 	</div>
 
@@ -49,7 +49,7 @@
 
 	<h1>Associate With Us </h1>
 	<div class="w3ls-login box box--big">
-		<form action="#" method="post">
+		<form method="post" action="/associatewithus">
 			<div class="agile-field-txt">
 				<label>Name</label>
 				<input type="text" name="name" placeholder="Enter Name" required="" />
@@ -57,22 +57,22 @@
 
 			<div class="agile-field-txt">
 				<label>E-mail</label>
-				<input type="text" name="name" placeholder="Enter E-mail" required="" />
+				<input type="text" name="email" placeholder="Enter E-mail" required="" />
 			</div>
 
 			<div class="agile-field-txt">
-				<label>Contact no</label>
-				<input type="text" name="password" placeholder="Enter Contact" required="" id="myInput" />
+				<label>Contact </label>
+				<input type="text" name="contact" placeholder="Enter Contact" required="" id="myInput" />
 				<div class="agile_label">
 					<input id="check1" name="check3" type="radio" value="Researcher">
 						<!-- onclick="myFunction()" -->
 					<label class="check" for="check3">Researcher</label>
 
-					<input id="check2" name="check3" type="radio" value="Researcher">
+					<input id="check2" name="check3" type="radio" value="Farmer">
 						<!-- onclick="myFunction()" -->
 					<label class="check" for="check3">Farmer</label>
 
-					<input id="check3" name="check3" type="radio" value="Researcher">
+					<input id="check3" name="check3" type="radio" value="Other">
 						<!-- onclick="myFunction()" -->
 					<label class="check" for="check3">Other</label>
 				</div>

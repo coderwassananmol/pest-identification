@@ -56,13 +56,13 @@
 		<ul>
 			<li><a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a></li>
 			<li><a  class="links" href="/" >Home</a></li>
-				<li><a class="links" href="/howTOuse" >How to use</a></li>
-				<li><a class="links" href="detectpest" >Detect pest</a></li>
-				<li><a class="links" href="/associateWITHus" >Associate with us</a></li>
-				<li><a class="links" href="/faqs" >Faqs</a></li>
-				<li><a class="links" href="/links" >Links and Resources</a></li>
-				<li><a class="links" href="/feedback" >Feedback</a></li>
-				<li><a class="links" href="/documentation" >Documentation</a>
+			<li><a class="links" href="/howtouse" >How to use</a></li>			
+			<li><a class="links" href="/documentation" >Documentation</a>
+			<li><a class="links" href="/detectpest" >Detect pest</a></li>
+			<li><a class="links" href="/associatewithus" >Associate with us</a></li>
+			<li><a class="links" href="/faqs" >Faqs</a></li>
+			<li><a class="links" href="/links" >Links and Credits</a></li>
+			<li><a class="links" href="/feedback" >Feedback</a></li>
 		</ul>
 	</div>
 
@@ -79,7 +79,7 @@
 				</span>
 			</div>
 
-			<form class="contact100-form validate-form">
+			<form class="contact100-form validate-form" method="post" action="/feedback">
 				<div class="wrap-input100 validate-input" data-validate="Name is required">
 					<span class="label-input100">Full Name:</span>
 					<input class="input100" type="text" name="name" placeholder="Enter full name">
@@ -89,7 +89,7 @@
 				<div class="wrap-input100 validate-input" data-validate="season is required">
 					<span class="label-input100">Season:</span>
 					
-					<select class="form-control" id="sel1" name="sellist1">
+					<select class="form-control" id="sel1" name="season">
 						<option value="Enter your season" disabled selected>Choose your option</option>
 						<option>Kharif</option>
 						<option>Rabi</option>
@@ -101,11 +101,11 @@
 				<div class="wrap-input100 validate-input" data-validate="state is required">
 					<span class="label-input100">States:</span>
 
-							<select class="form-control" id="sel1" name="sellist1">
+							<select class="form-control" id="sel1" name="state">
 							<option value="Enter your state" disabled selected>Choose your option</option>
-							<option value="alluvial">Andhra Pradesh</option>
-							<option value="Black">Arunachal Pradesh</option>
-							<option value="Red">Assam</option>
+							<option value="Andhra Pradesh">Andhra Pradesh</option>
+							<option value="Arunachal Pradesh">Arunachal Pradesh</option>
+							<option value="Assam">Assam</option>
 							<option value="Red">Bihar</option>
 							<option value="Red">Chhattisgarh</option>
 							<option value="Red">Goa</option>
@@ -131,7 +131,6 @@
 							<option value="Red">Tamil Nadu</option>
 							<option value="Red">Telangana</option>
 							<option value="Red">West Bengal</option>
-							<option value="Red">Rajashtan</option>
 							
 						  </select>
 					<span class="focus-input100"></span>
@@ -140,14 +139,14 @@
 				<div class="wrap-input100 validate-input" data-validate="soil is required">
 					<span class="label-input100">Soil:</span>
 					
-						<select class="form-control">					  
+						<select class="form-control" name="soil">					  
 							<option value="Enter soil" disabled selected>Choose your option</option>
 							<option value="Alluvial">Alluvial soil</option>
 							<option value="Black">Black soil</option>
 							<option value="Red">Red soil</option>
-							<option value="Red">Desert soil</option>
-							<option value="Red">Laterite soil</option>
-							<option value="Red">Mountain soils</option>
+							<option value="Desert">Desert soil</option>
+							<option value="Laterite">Laterite soil</option>
+							<option value="Mountain">Mountain soils</option>
 						</select>
 
 						  
@@ -156,20 +155,20 @@
 
 				<div class="wrap-input100 validate-input" data-validate="crop is required">
 					<span class="label-input100">Crop:</span>
-					<input class="input100" type="text" name="name" placeholder="Enter crop type">
+					<input class="input100" type="text" name="crop" placeholder="Enter crop name">
 					<span class="focus-input100"></span>
 				</div>
 
 				<div class="wrap-input100 validate-input" data-validate="pest is required">
 					<span class="label-input100">Pest:</span>
-					<input class="input100" type="text" name="name" placeholder="Enter pest type">
+					<input class="input100" type="text" name="pest" placeholder="Enter pest type">
 					<span class="focus-input100"></span>
 				</div>
 
 				<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
 					<span class="label-input100">Email:</span>
 					
-					<input type="email" class="form-control" id="inputEmail" placeholder="Email" data-error="Bruh, that email address is invalid" required>
+					<input type="email" class="form-control" id="inputEmail" name="email" placeholder="Email" data-error="Bruh, that email address is invalid" required>
 					<div class="help-block with-errors"></div>
 					<span class="focus-input100"></span>
 				</div>
@@ -182,7 +181,7 @@
 
 				<div class="wrap-input100 validate-input" data-validate = "description is required">
 					<span class="label-input100">Description:</span>
-					<textarea class="input100" name="message" placeholder="Your Comment..." required></textarea>
+					<textarea class="input100" name="desc" placeholder="Your Comment..." required></textarea>
 					<span class="focus-input100"></span>
 				</div>
 

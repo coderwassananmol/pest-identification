@@ -5,7 +5,6 @@ mongoose.connect('mongodb://localhost:27017/seheyogi', {useNewUrlParser: true});
 
 var pests = new Schema ({
     pestname: String,
-    commonname: String,
     scientificname: String,
     desc: String,
     cure : String,
@@ -50,7 +49,7 @@ module.exports.getPestsByCropName = function(cropname, callback){
 
 module.exports.getPestById = function(id, callback){
     var query = {_id:id};
-    Pests.find(query, callback);
+    Pests.findOne(query, callback);
 }
 
 module.exports.getCrops = function(crop, callback){
@@ -64,7 +63,7 @@ module.exports.getRegionByStateName = function(state, callback){
     States.findOne(query, callback);
 }
 
-module.exports.questionnaire = function(crop, soil, state, affectedArea, holesAt, discoloration, callback){
-    var query = {cropsAffected: crop, soil: soil, affectedArea: affectedArea,} //TBD
+module.exports.questionnaire = function(crop, soil, season, affectedArea, holesAt, discoloration, region, callback){
+    var query = {cropsAffected: crop, soil: soil, season: season, affectedArea: affectedArea, holesAt: holesAt, discoloration: discoloration, region:region} //TBD
     Pests.find(query, callback);
 }

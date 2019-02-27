@@ -32,7 +32,7 @@
 				<li class="cd-label"> Crop Names</li>
 				<% for(var i=0; i<crops.length; i++) { %>
 					<li class="has-children active">
-						<a href="<%= crops[i].crop%>"><%= crops[i].crop %></a>
+						<a href="/documentation/<%= crops[i].crop%>"><%= crops[i].crop %></a>
 					</li>
 				<% }; %>
 			</ul>
@@ -45,7 +45,7 @@
 				<% for(var j=0; j<pests.length; j++) { %>
 					<div class="column">
 					<div class="card">
-						<a href = ""> <!-- Add Link for pests-->
+						<a href = "/documentation/pest/<%= pests[j]._id%>">
 						<img src = "/images/logo.png" class="docs-image"> <!-- Change scheme to mainimage and insert here-->
 						<p><%= pests[j].pestname %></p>
 						<p><%= pests[j].scientificname %></p>

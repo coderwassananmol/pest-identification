@@ -26,6 +26,3 @@ exports.getHowToUse = (req,res,next)=>{
 exports.getLinks = (req,res,next)=>{
     res.render('links');
 }
-exports.getQuestionPage = (req,res,next)=>{
-    res.sendFile(path.join(mainDir,'views','questionpage.html'));
-}

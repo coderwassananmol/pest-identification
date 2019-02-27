@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pest Information</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8">
+	<link rel="stylesheet" href="/pestassets/bootstrap-4.0.0-dist/css/bootstrap.min.css">
+        <script src="/pestassets/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script> 
+        <link rel="stylesheet" href="/pestassets/pest.css" />
+    </head>
+    <body>
+        <nav class="navbar">
+
+            <div class="logo">
+                <a><img src="/pestassets/images/_seheyogi logo white.png"/></a>
+            </div>
+
+            <span class="openslide">
+                <a href="#" id="black" onclick="openSlideMenu()">
+                    <svg width="30" height="30">
+                        <path d="M0,5  30,5" stroke="#fff"
+                        stroke-width="5"/>
+                        <path d="M0,14  30,14" stroke="#fff"
+                        stroke-width="5"/>
+                        <path d="M0,23  30,23" stroke="#fff"
+                        stroke-width="5"/>
+                    </svg>  
+                </a>
+            </span>
+
+        </nav>
+
+        <div id="slide-menu" class="side-nav">
+            <ul>
+                <li><a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a></li>
+                <li><a  class="links" href="#" >Home</a></li>
+                <li><a class="links" href="#" >How to use</a></li>
+                <li><a class="links" href="#" >Detect pest</a></li>
+                <li><a class="links" href="#" >Associate with us</a></li>
+                <li><a class="links" href="#" >Faqs</a></li>
+                <li><a class="links" href="#" >Links and Resources</a></li>
+                <li><a class="links" href="#" >Feedback</a></li>
+                <li><a class="links" href="#" >Documentation</a>
+            </ul>
+        </div>
+
+        <div id="maindiv">
+            <div id="pestheading">
+                <h1><%= pests.scientificname%></h1>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 sm-12" id="image">
+                    <h2>Image</h2>
+                    <img src="/pestimages/<%= pests.mainImage%>"/>
+                    
+                </div>
+                <div class="col-lg-6 sm-12" id="desc">
+                   <h2>Description</h2>
+                   <p><%= pests.desc%>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+               <div class="col-lg-6 sm-12" id="soln">
+                    <h2>Solution</h2>
+                    <p><%= pests.cure %>
+                    </p>
+                </div>
+                <div class="col-lg-6 sm-12" id="char"> 
+                    <h2>Characteristics</h2>
+                    <table class="table table-hover">
+                        <tbody>                            
+                            <tr>
+                                <th class="label">Common Name</th>
+                                <th><%= pests.pestname%></th>
+                            </tr>
+                            <tr>
+                                <th class="label">Crop</th>
+                                <th><%= pests.cropsAffected%></th>
+                            </tr>
+                            <tr>
+                                <th class="label">Affected Area</th>
+                                <th><%= pests.affectedArea%></th>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div> 
+            </div>
+
+        </div>
+
+        <script>
+            function openSlideMenu() {
+                document.getElementById('slide-menu').style.width='300px';
+            }
+
+            function closeSlideMenu() {
+                document.getElementById('slide-menu').style.width='0';
+            }
+
+        </script>
+
+    </body>
+</html>
