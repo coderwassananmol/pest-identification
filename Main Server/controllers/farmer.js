@@ -5,7 +5,7 @@ exports.getMainPage = (req,res,next)=>{
     res.render('homepage');
 }
 exports.getAssociateWithUs = (req,res,next)=>{
-    res.render('associateWITHus');
+    res.render('associate');
 }
 exports.getCredits = (req,res,next)=>{
     res.render('credits');

@@ -48,6 +48,16 @@ router.get('/documentation/:name', function(req, res, next) {
   });  
 });
 
+router.get('/documentation/:id', function(req, res, next) {
+  var id = req.params.id;
+  var pestFiltered;
+  model.getPestbyId(id, function(err, pests) {    
+    pestFiltered = pests;
+    console.log(pestFiltered);
+    res.render('docsingle', {'pests': pestFiltered});
+  });
+});
+
 router.get('/faqs',farmerController.getFaq);
 
 module.exports = router; 

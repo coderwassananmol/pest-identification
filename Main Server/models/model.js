@@ -27,8 +27,8 @@ var states = new Schema ({
 
 var crops = new Schema ({
     crop : String,
-    soil : ['Eluvial','Forest','Red','Marshi','Laterite'],
-    region : ['WH','NP','Dessert','Costal','Mangroove','Deccan'],
+    soil : ['Alluvial','Forest','Red','Marshy','Laterite'],
+    region : ['WH','NP','Desert','Coastal','Mangrove','Deccan'],
     season : ['Kharif','Rabi','Zaid']
 })
 
@@ -48,6 +48,11 @@ module.exports.getPestsByCropName = function(cropname, callback){
 	Pests.find(query, callback);
 };
 
+module.exports.getPestById = function(id, callback){
+    var query = {_id:id};
+    Pests.find(query, callback);
+}
+
 module.exports.getCrops = function(crop, callback){
     var query = {crop : crop};
     var cropArr={};
@@ -57,4 +62,9 @@ module.exports.getCrops = function(crop, callback){
 module.exports.getRegionByStateName = function(state, callback){
     var query = {state : state};
     States.findOne(query, callback);
+}
+
+module.exports.questionnaire = function(crop, soil, state, affectedArea, holesAt, discoloration, callback){
+    var query = {cropsAffected: crop, soil: soil, affectedArea: affectedArea,} //TBD
+    Pests.find(query, callback);
 }
