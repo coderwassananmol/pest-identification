@@ -67,3 +67,25 @@ module.exports.questionnaire = function(crop, soil, season, affectedArea, holesA
     var query = {cropsAffected: crop, soil: soil, season: season, affectedArea: affectedArea, holesAt: holesAt, discoloration: discoloration, region:region} //TBD
     Pests.find(query, callback);
 }
+
+//Queries for Editing Records
+module.exports.getAllPests = function(callback){
+    Pests.find(callback);
+}
+
+//Adding new pest
+module.exports.createPest = function(newpest, callback){
+    newpest.save(callback);
+}
+
+module.exports.removePestsById = function(id){
+    Pests.deleteOne({_id: id}, function (err) {
+    if (err) return handleError(err); //TODO: Handle error if record doesn't exist/already exists
+  });
+}
+
+module.exports.updatePestById = function(id, data){
+    Pests.findOneAndUpdate({_id:id}, data, function(err){
+        if (err) return handleError(err);
+    })
+}
