@@ -16,6 +16,8 @@ router.get('/links',farmerController.getLinks);
 
 router.get('/credits',farmerController.getCredits);
 
+router.get('/chat',farmerController.getChatBot);
+
 router.get('/howTOuse',farmerController.getHowToUse);
 
 router.get('/associateWITHus',farmerController.getAssociateWithUs);
@@ -49,5 +51,7 @@ router.get('/documentation/:name', function(req, res, next) {
 });
 
 router.get('/faq',farmerController.getFaq);
+
+router.post('/chat',farmerController.getChatBotResponse);
 
 module.exports = router; 

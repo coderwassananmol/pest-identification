@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrap-css"
+    />
+    <title>Chat with us!</title>
+    <style>
+      .chat {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .chat li {
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+        border-bottom: 1px dotted #b3a9a9;
+      }
+
+      .chat li.left .chat-body {
+        margin-left: 60px;
+      }
+
+      .chat li.right .chat-body {
+        margin-right: 60px;
+      }
+
+      .chat li .chat-body p {
+        margin: 0;
+        color: #777777;
+      }
+
+      .panel .slidedown .glyphicon,
+      .chat .glyphicon {
+        margin-right: 5px;
+      }
+
+      .panel-body {
+        overflow-y: scroll;
+        height: 400px;
+      }
+
+      ::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        background-color: #f5f5f5;
+      }
+
+      ::-webkit-scrollbar {
+        width: 12px;
+        background-color: #f5f5f5;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        background-color: #555;
+      }
+
+      .richtext {
+        border-radius: 40%;
+        color: #000;
+        background: #fff;
+        padding: 5px;
+        border-width: 2px;
+        border-color: black;
+        border-style: dashed;
+        margin-top: 5px;
+        margin-right: 4px;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-primary">
+            <div class="panel-heading" id="accordion">
+              <span class="glyphicon glyphicon-comment"></span> Chat
+            </div>
+            <div class="panel-collapse" id="collapseOne">
+              <div class="panel-body">
+                <ul class="chat">
+                  <li class="left clearfix">
+                    <span class="chat-img pull-left">
+                      <img
+                        src="http://placehold.it/50/55C1E7/fff&text=U"
+                        alt="User Avatar"
+                        class="img-circle"
+                      />
+                    </span>
+                    <div class="chat-body clearfix">
+                      <div class="header">
+                        <strong class="primary-font">Umeed</strong>
+                      </div>
+                      <p>
+                        <%= response.text %>
+                      </p>
+                      <button class="richtext" onclick="appendRight('need pests')">need pests</button>
+                      <button class="richtext" onclick="appendRight('want herbs')">want herbs</button>
+                      <button class="richtext" onclick="appendRight('throw me a random fact')">throw me a random fact</button>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="panel-footer">
+                <div class="input-group">
+                  <input
+                    id="btn-input"
+                    type="text"
+                    class="form-control input-sm"
+                    placeholder="Type your message here..."
+                  />
+                  <span class="input-group-btn">
+                    <button
+                      type="submit"
+                      class="btn btn-warning btn-sm"
+                      id="btn-chat"
+                    >
+                      Send
+                    </button>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script>
+      function appendRight(value) {
+        value = value.trim();
+        if (value !== "") {
+          $("#btn-input").val("");
+          $("ul.chat").append(
+            '<li class="right clearfix">' +
+              '<span class="chat-img pull-right">' +
+              '<img src="http://placehold.it/50/FA6F57/fff&text=ME" alt="User Avatar" class="img-circle" /></span>' +
+              '<div class="chat-body clearfix">' +
+              '<div class="header pull-right">' +
+              '<strong class="primary-font">You</strong>' +
+              "<p>" +
+              value +
+              "</strong></p></div></li>"
+          );
+          fetchResponse(value);
+        }
+      }
+
+      function appendLeft(value) {
+        let text = value.text.trim();
+        if (text !== "") {
+          $("#btn-input").val("");
+          $("ul.chat").append(
+            '<li class="left clearfix">' +
+              '<span class="chat-img pull-left">' +
+              '<img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" /></span>' +
+              '<div class="chat-body clearfix">' +
+              '<div class="header">' +
+              '<strong class="primary-font">Umeed</strong>' +
+              "<p>" +
+              text +
+              "</strong></p>"+
+              value.entities.map(resp => `<button class="richtext" onclick="appendRight('${resp}')">${resp}</button>`)+
+              "</div></li>"
+          );
+        }
+      }
+
+      function fetchResponse(data) {
+          fetch("/chat", {
+          method: "post",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            data: data
+          })
+        })
+          .then(resp => resp.json())
+          .then(resp => {
+            appendLeft(resp.response);
+            var d = $("div.panel-body");
+            d.scrollTop(d.prop("scrollHeight"));
+          });
+      }
+      window.addEventListener("keypress", function(event) {
+        if (event.which === 13) {
+          const value = $("#btn-input").val();
+          appendRight(value);
+          var d = $("div.panel-body");
+          d.scrollTop(d.prop("scrollHeight"));
+        }
+      });
+      $("#btn-chat").on("click", function() {
+        const value = $("#btn-input").val();
+        appendRight(value);
+        var d = $("div.panel-body");
+        d.scrollTop(d.prop("scrollHeight"));
+      });
+
+      /*$(document).ready(function() {
+        fetch('/chat',{
+          method: 'post',
+          headers: {
+            'Content-Type' : 'application/json'
+          }
+        })
+        .then(resp => resp.json())
+        .then(resp => {
+          $('ul.chat').append('<li class="left clearfix"><span class="chat-img pull-left">'+
+            '<img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" /></span>'+
+            '<div class="chat-body clearfix"><div class="header">'+
+            '<strong class="primary-font">Jack Sparrow</strong> <small class="pull-right text-muted">'+
+            '<span class="glyphicon glyphicon-time"></span>12 mins ago</small>'+
+            '</div><p>'+
+            resp+
+            '</p></div></li>');
+        });
+      })*/
+    </script>
+  </body>
+</html>

@@ -11,8 +11,12 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "dialogflow": "^0.8.0",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
-    "mongoose": "^5.4.15"
+    "https-proxy-agent": "^2.2.1",
+    "mongoose": "^5.4.15",
+    "node-fetch": "^2.3.0",
+    "uuid": "^3.3.2"
   }
 }

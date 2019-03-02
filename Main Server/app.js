@@ -10,6 +10,12 @@ app.set('view engine', 'ejs');
 app.set('views', 'views');
 
 app.use(bodyParser.urlencoded({ extended: false }));
+
+//Parse application/x-www-form-urlencoded
+
+//Parse application/json
+app.use(bodyParser.json())
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
@@ -22,4 +28,7 @@ app.use((req,res,next)=>{
     res.send('<h1>Page Not Found</h1>')
 });
 
-app.listen(3000);
+app.listen(3000, (err) => {
+    if (err) throw err
+    console.log('> Ready on http://localhost:3000')
+})
