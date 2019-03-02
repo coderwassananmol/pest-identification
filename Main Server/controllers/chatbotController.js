@@ -1,8 +1,6 @@
 const dialogflow = require("dialogflow");
 const uuid = require("uuid");
 const fetch = require("node-fetch");
-const HttpsProxyAgent = require('https-proxy-agent');
-
 /**
  * Send a query to the dialogflow agent, and return the query result.
  * @param {string} projectId The project to be used
@@ -56,8 +54,7 @@ exports.runBot = async (projectId, text, callback) => {
         data = entities[0].entities.map(val => val.value);
       }
       else if(result.intent.displayName === "ObjectIntent - season") {
-        await fetch("https://raw.githubusercontent.com/coderwassananmol/Indian-States-And-Districts/master/states-and-districts.json",
-        { agent:new HttpsProxyAgent('http://proxy.ssn.net:8080')})
+        await fetch("https://raw.githubusercontent.com/coderwassananmol/Indian-States-And-Districts/master/states-and-districts.json")
         .then(resp => resp.json())
         .then(resp => {
           data = resp.states.map(item => item.state)
