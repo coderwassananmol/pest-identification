@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Animation on scroll</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="./scroll.js"></script>
+        <link rel="stylesheet" type="text/css" href="/detectpestsassets/aos.css">
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    
+        <link rel="stylesheet" type="text/css" href="/detectpestsassets/scroll.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        
+
+<div id="container" data-aos="fade-up-right">
+    <div id="red" data-aos="flip-up">
+        <h1 data-aos="flip-left">Questionare Form!!</h1>
+        
+        <p data-aos="fade-in">Please fill this form in order to identify the pest</p>
+        
+            <a href="#green" class="a">Start</a>
+        
+    </div>
+    
+
+    <form class="form-inline" role="form" method="post">
+
+    <div id="green" data-aos="fade-down">
+        <h2 data-aos="zoom-in-up">Enter Your state</h2>
+
+        <div class="form-group">
+            <label for ="seedoc"></label>
+                
+                    <select class="form-control" id="seedoc" name="state" data-aos="flip-up">                       
+                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                <option value="Assam">Assam</option>
+                        <option value="Bihar">Bihar</option>
+                        <option value="Chhattisgarh">Chhattisgarh</option>
+                        <option value="Goa">Goa</option>
+                        <option value="Gujarat">Gujarat</option>
+                        <option value="Haryana">Haryana</option>
+                        <option value="Himachal Pradesh">Himachal Pradesh</option>
+                        <option value="Jammu & Kashmir">Jammu&Kashmir</option>
+                        <option value="Jharkhand">Jharkhand</option>
+                        <option value="Kerala">Kerala</option>
+                        <option value="Madhya Pradesh">Madhya Pradesh</option>
+                        <option value="Maharashtra">Maharashtra</option>
+                        <option value="Manipur">Manipur</option>
+                        <option value="Meghalya">Meghalya</option>
+                        <option value="Odisha">Odisha</option>
+                        <option value="Mizoram">Mizoram</option>
+                        <option value="Nagaland">Nagaland</option>
+                        <option value="Punjab">Punjab</option>
+                        <option value="Sikkim">Sikkim</option>
+                        <option value="Rajashtan">Rajashtan</option>
+                        <option value="Tripura">Tripura</option>
+                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                        <option value="Uttarakhand">Uttarakhand</option>
+                        <option value="Tamil Nadu">Tamil Nadu</option>
+                        <option value="Telangana">Telangana</option>
+                        <option value="West Bengal">West Bengal</option>
+                    </select>
+
+
+                
+
+    <a href="#blue" id="a">Next</a>      
+        
+          
+    </div>
+</div>
+         
+<div id="blue" data-aos="zoom-in">
+
+    <h3>Choose your soil type:</h3>
+
+    <div class="form-group">
+        <label for="sel1"></label>      
+                <select class="form-control" id="sel7" name="soil">                       
+                <option value="Alluvial soil">Alluvial</option>
+                <option value="Marshy">Marshy </option>
+                <option value="Black">Black</option>
+                <option value="Red">Red</option>
+                <option value="Forest">Forest</option>
+                <option value="Laterite">Laterite</option>
+                    </select>
+
+                <a href="#yellow" id="a1">Next</a></button>
+    </div>
+
+     
+
+      
+    
+    <div id="yellow" data-aos="zoom-out-down">
+        <h4 data-aos="flip-left">Select your crop season:</h4>
+            <div class="form-group">
+                    <label for ="sel1"></label>
+                    
+                <select onchange="toggle_form_element(this)" class="form-control" id="sel1" name="season">
+
+                      <option value="rabi">Rabi</option>
+                      <option value="kharif">Kharif</option>
+                      <option value="zaid">Zaid</option>
+                      
+                </select>
+
+                
+                <a href="#pink" id="a2">Next</a>
+                  
+    </div>
+
+    <div id="pink" data-aos="zoom-in">
+        <h6>Select your crops</h6>
+        <div class="form-group">
+                <label for ="sel1"></label>
+                
+            <select class="form-control" id="sel4" name="crop">
+
+                  <option>Wheat</option>
+                  <option>Rice</option>
+                  <option>Maize</option>
+
+                  <option>Wheat</option>
+                  <option>Rice</option>
+                  <option>Maize</option>
+
+                  <option>Wheat</option>
+                  <option>Rice</option>
+                  <option>Maize</option>
+
+                  <option>Wheat</option>
+                  <option>Rice</option>
+                  <option>Maize</option>
+
+                  <option>Wheat</option>
+                  <option>Rice</option>
+                  <option>Maize</option>
+            </select>      
+
+
+            <select class="form-control" id="sel5" name="crop">
+
+                    <option>Wheat</option>
+                    <option>Rice</option>
+                    <option>Maize</option>
+              </select>   
+              
+              <select class="form-control" id="sel6" name="crop">
+
+                    <option>Wheat</option>
+                    <option>Rice</option>
+                    <option>Maize</option>
+  
+                    <option>Wheat</option>
+                    <option>Rice</option>
+                    <option>Maize</option>
+  
+                    <option>Wheat</option>
+                    <option>Rice</option>
+                    <option>Maize</option>
+  
+              </select>      
+  
+  
+                  
+            </select>
+
+    </div>
+</div>
+         
+        <section id="magenta" data-aos="zoom-out">
+
+            <h5>Select Affected area of your crop</h5>
+
+            <section class="form-check-inline">
+                <ul>
+                    <li>
+                        <input type='radio' value='stem' name='affectedArea' id='radio1'/>
+                        <label for='radio1'>
+                                <section class="card" data-aos="zoom-in">
+                                        <img class="card-img-top" src="img/stem_1.jpeg" alt="Card image" id="center">
+                                        <section class="card-body">
+                                            <h6>Stem</h6>
+                                        </section>
+                                </section>                       
+                        </label>
+                    </li>
+                        <li>
+                            <input type='radio' value='discoloration' name='affectedArea'  id='radio2'/>
+                            <label for='radio2'>
+                                <section class="card" data-aos="zoom-in">
+                                <img class="card-img-top" src="img/discolouration.jpg" alt="Card image" id="center">
+                                <section class="card-body">
+                                        <h6>Discolouration</h6>
+                                    </section>
+                                </section>                  
+                            </label>
+                        </li>
+                        <li>
+                                <input type='radio' value='leafcenter' name='affectedArea'  id='radio2'/>
+                                <label for='radio2'>
+                                    <section class="card" data-aos="zoom-in">
+                                    <img class="card-img-top" src="img/center_hole.jpg" alt="Card image" id="center">
+                                    <section class="card-body">
+                                            <h6>Holes at leaf center</h6>
+                                        </section>
+                                </section>                  
+                                </label>
+                            </li>
+                        <li>
+                            <input type='radio' value='leafedges' name='affectedArea'  id='radio3'/>
+                            <label for='radio3'>
+                          
+                            <section class="card" data-aos="flip-left">
+                                <img class="card-img-top" src="img/edges_hole.jpg" alt="Card image" id="center">
+                                <section class="card-body">
+                                        <h6>Holes on leaf edges</h6>
+                                    </section>
+                            </section>                            
+                            </label>
+                        </li>
+                    </ul>
+                    </li>
+                </ul>
+                <button type="submit" class="btn btn-primary" id="btn6">Submit</button>
+            </section>
+            
+        </section>
+        
+    </form>
+
+</div>
+
+    
+     
+
+<script
+src="https://code.jquery.com/jquery-2.2.4.js"
+></script>
+<script
+src="/detectpestsassets/aos.js"
+></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script> 
+
+<script type = "text/javascript">
+              AOS.init({
+                  duration:2000,
+              }); 
+              
+        </script> 
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    

@@ -5,7 +5,6 @@ mongoose.connect('mongodb://localhost:27017/seheyogi', {useNewUrlParser: true});
 
 var pests = new Schema ({
     pestname: String,
-    commonname: String,
     scientificname: String,
     desc: String,
     cure : String,
@@ -27,8 +26,8 @@ var states = new Schema ({
 
 var crops = new Schema ({
     crop : String,
-    soil : ['Eluvial','Forest','Red','Marshi','Laterite'],
-    region : ['WH','NP','Dessert','Costal','Mangroove','Deccan'],
+    soil : ['Alluvial','Forest','Red','Marshy','Laterite'],
+    region : ['WH','NP','Desert','Coastal','Mangrove','Deccan'],
     season : ['Kharif','Rabi','Zaid']
 })
 
@@ -48,6 +47,11 @@ module.exports.getPestsByCropName = function(cropname, callback){
 	Pests.find(query, callback);
 };
 
+module.exports.getPestById = function(id, callback){
+    var query = {_id:id};
+    Pests.findOne(query, callback);
+}
+
 module.exports.getCrops = function(crop, callback){
     var query = {crop : crop};
     var cropArr={};
@@ -57,4 +61,31 @@ module.exports.getCrops = function(crop, callback){
 module.exports.getRegionByStateName = function(state, callback){
     var query = {state : state};
     States.findOne(query, callback);
+}
+
+module.exports.questionnaire = function(crop, soil, season, affectedArea, holesAt, discoloration, region, callback){
+    var query = {cropsAffected: crop, soil: soil, season: season, affectedArea: affectedArea, holesAt: holesAt, discoloration: discoloration, region:region} //TBD
+    Pests.find(query, callback);
+}
+
+//Queries for Editing Records
+module.exports.getAllPests = function(callback){
+    Pests.find(callback);
+}
+
+//Adding new pest
+module.exports.createPest = function(newpest, callback){
+    newpest.save(callback);
+}
+
+module.exports.removePestsById = function(id){
+    Pests.deleteOne({_id: id}, function (err) {
+    if (err) return handleError(err); //TODO: Handle error if record doesn't exist/already exists
+  });
+}
+
+module.exports.updatePestById = function(id, data){
+    Pests.findOneAndUpdate({_id:id}, data, function(err){
+        if (err) return handleError(err);
+    })
 }

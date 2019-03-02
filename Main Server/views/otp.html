@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login Form</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="loginassets/css/util.css">
+	<link rel="stylesheet" type="text/css" href="loginassets/css/main.css">
+
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+</head>
+<body>
+	<nav class="navbar">
+
+		<div class="logo">
+			<a><img src="../Login_v15/loginassets/images/_seheyogi logo white.png"/></a>
+		</div>
+
+		<span class="openslide">
+			<a href="#" id="black" onclick="openSlideMenu()">
+				<svg width="30" height="30">
+					<path d="M0,5  30,5" stroke="#fff"
+					stroke-width="5"/>
+					<path d="M0,14  30,14" stroke="#fff"
+					stroke-width="5"/>
+					<path d="M0,23  30,23" stroke="#fff"
+					stroke-width="5"/>
+				</svg>  
+			</a>
+		</span>
+
+	</nav>
+
+        <div id="slide-menu" class="side-nav">
+            <ul>
+                <li><a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a></li>
+                <li><a  class="links" href="#" >Home</a></li>
+                <li><a class="links" href="#" >How to use</a></li>
+                <li><a class="links" href="#" >Detect pest</a></li>
+                <li><a class="links" href="#" >Associate with us</a></li>
+                <li><a class="links" href="#" >Faqs</a></li>
+                <li><a class="links" href="#" >Links and Resources</a></li>
+                <li><a class="links" href="#" >Feedback</a></li>
+                <li><a class="links" href="#" >Documentation</a>
+            </ul>
+        </div>
+
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-form-title" style="background-image: url('loginassets/images/agri.jpg');">
+					<span class="login100-form-title-1">
+						OTP Verification
+					</span>
+				</div>
+
+				<form class="login100-form validate-form" method="post" action="/verifyotp">
+					<div class="wrap-input100 validate-input m-b-26" data-validate="OTP is required">
+						<span class="label-input100">Enter OTP</span>
+						<input class="input100" type="text" name="otpnumber" maxlength="6" size="6">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							Submit
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+
+	<script>
+		function openSlideMenu() {
+			document.getElementById('slide-menu').style.width='300px';
+		}
+
+		function closeSlideMenu() {
+			document.getElementById('slide-menu').style.width='0';
+		}
+
+	</script>
+
+</body>
+</html>
+</html>

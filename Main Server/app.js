@@ -3,6 +3,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const routes = require('./routes/farmer');
 const models = require('./models/model');
+const auth = require('./routes/auth')
 
 const app = express();
 
@@ -19,6 +20,7 @@ app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
+app.use(auth);
 
 app.use('/home',(req,res,next)=>{
     res.redirect('/');

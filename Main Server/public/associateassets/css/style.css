@@ -212,14 +212,14 @@ img {
 body {
      font-family: 'Poiret One', cursive;
     font-size: 100%;
-    background: url(../images/farmerhands.jpeg)no-repeat center;
-    background-color: rgba(54,84,99,1);
+    background: url(../images/sideautumn.jpg)no-repeat center;
+    background-color: rgb(0, 0, 0);
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     -ms-background-size: cover;
-    text-align: left;
+    text-align: center;
 }
 .w3ls-login {
     display: -webkit-flex;
@@ -228,23 +228,24 @@ body {
     display: -moz-box;
     display: -ms-flexbox;
     display: flex;
-    justify-content: left;
-    align-items: left;
-    -webkit-box-pack: left;
+    justify-content: center;
+    align-items: center;
+    -webkit-box-pack: center;
     -moz-box-pack: left;
     -ms-flex-pack: left;
-    -webkit-justify-content: left;
+    -webkit-justify-content: center;
 }
 
 h1 {
-    font-size: 3em;
+    font-size: 2em;
     font-weight: 300;
     text-transform: capitalize;
-    color: #fff;
+    color: rgb(0, 0, 0);
     text-shadow: 1px 1px 1px #000;
     letter-spacing: 3px;
-    padding: 25px;
-    text-align: left;
+    /* padding: 15px 0 15px 15px; */
+    padding: 15px 0;
+    text-align: center;
      font-family: 'Poiret One', cursive;
 }
 
@@ -256,17 +257,18 @@ h1 {
     border: none;
     box-sizing: border-box;
     display: flex;
-    border-left: 4px solid #00ba9d;
+    border: 3px solid grey;
+    border-left: 3px solid grey;
     display: -webkit-flex;
     flex-wrap: wrap;
-    -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.3);
-    -moz-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.3);
-    box-shadow: 1px 1px 1px 1px rgba(255, 255, 255, 0.5);
+    -webkit-box-shadow: 0px 0px 20px 0px grey;
+    -moz-box-shadow: 0px 0px 20px 0px grey;
+    box-shadow: 3px 3px 3px 3px grey;
 }
 
 .w3ls-login label {
     font-size: 16px;
-    color: #00ba9d;
+    color: #000000;
     float: left;
     font-weight: 600;
     margin-bottom: 15px;
@@ -279,6 +281,7 @@ h1 {
     -webkit-flex-basis: 100%;
     margin-bottom: 1.5em;
     clear: both;
+    color: rgb(31, 31, 31);
 }
 
 .w3ls-login label i {
@@ -290,7 +293,7 @@ h1 {
 .w3ls-login input[type="text"],
 .w3ls-login input[type="password"] {
     width: 100%;
-    color: #aaa;
+    color: rgb(0, 0, 0);
     outline: none;
      font-size: 15px;
     font-weight: bold;
@@ -300,7 +303,7 @@ h1 {
     padding: 9px;
     box-sizing: border-box;
     border: none;
-     border: 1px solid #aaa;
+     border: 1px solid rgb(0, 0, 0);
     -webkit-appearance: none;
      font-family: 'Poiret One', cursive;
     background: transparent;
@@ -312,7 +315,7 @@ h1 {
 
 label.check {
     float: none;
-    color: #aaa;
+    color: rgb(0, 0, 0);
     font-size: 15px;
     cursor: pointer;
 }
@@ -329,7 +332,7 @@ label.check {
 
 .agile-right a {
     font-size: 15px;
-    color: #aaa;
+    color: rgb(0, 0, 0);
     font-weight: 600;
     margin-bottom: 10px;
     text-transform: capitalize;
@@ -343,19 +346,19 @@ label.check {
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  color: #aaa;
+  color:#0000;
 }
 ::-moz-placeholder { /* Firefox 19+ */
-  color: #aaa;
+    color:#0000;
 }
 :-ms-input-placeholder { /* IE 10+ */
-  color: #aaa;
+    color:#0000;
 }
 :-moz-placeholder { /* Firefox 18- */
-  color: #aaa;
+    color:#0000;
 }
 .w3ls-login input[type=submit] {
-    color: #fff;
+    color: rgb(0, 0, 0);
     font-weight: 600;
     width: 50%;
 	margin: auto;
@@ -364,11 +367,11 @@ label.check {
     font-size: .9em;
     letter-spacing: 2px;
     cursor: pointer;
-    border: none;
     outline: none;
-    background: #00ba9d;
-    color: #fff;
-    border: 1px solid transparent;
+    color: rgb(0, 0, 0);
+    border: none;
+    /* background: transparent; */
+    background-color: #d80a48;
     font-family: 'Poiret One', cursive;
     transition: 0.5s all ease;
     -webkit-transition: 0.5s all ease;
@@ -378,9 +381,9 @@ label.check {
 }
 
 .w3ls-login input[type=submit]:hover {
-    border: 1px solid #00ba9d;
-    color: #00ba9d;
-	background: transparent;
+    border: none;
+    color: #000000;
+	background-color: #15c942;
 }
 
 .w3ls-bot {
@@ -392,9 +395,9 @@ label.check {
     position: absolute;
     top: -10%;
     left: 40%;
-    border: 7px solid #00ba9d;
-    border-left-color: #fff;
-    border-right-color: #fff;
+    border: 7px solid #ffffff;
+    border-left-color:rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
     border-radius: 50%;
 }
 
@@ -406,16 +409,16 @@ label.switch {
     height: 23px;
     padding-left: 3.8em;
     cursor: pointer;
-    color: #aaa;
+    color: rgb(0, 0, 0);
 }
 
-li:nth-child(2) a,
+/* li:nth-child(2) a,
 label.switch {
     text-transform: capitalize;
     font-size: 14px;
     font-weight: 600;
     letter-spacing: 2px;
-}
+} */
 
 .switch input {
     display: none;
@@ -429,7 +432,7 @@ label.switch {
     right: 0;
     bottom: 4px;
     width: 18%;
-    background-color: #666;
+    background-color: rgb(185, 185, 185);
     -webkit-transition: .4s;
     transition: .4s;
      border-radius: 10px;
@@ -442,17 +445,17 @@ label.switch {
     width: 10px;
     left: 4px;
     bottom: 5px;
-    background-color: white;
+    background-color: rgb(0, 0, 0);
     -webkit-transition: .4s;
     transition: .4s;
 }
 
 input:checked+.slider {
-    background-color: #00ba9d;
+    background-color: #ffffff;
 }
 
 input:focus+.slider {
-    box-shadow: 0 0 1px #00ba9d;
+    box-shadow: 0 0 1px #ffffff;
 }
 
 input:checked+.slider:before {
@@ -482,17 +485,17 @@ input:checked+.slider:before {
 }
 
 .copy-wthree p {
-    color: #ccc;
+    color: rgb(0, 0, 0);
     font-size: 15px;
     letter-spacing: 2px;
     line-height: 1.8;
     margin: 0 3vw;
     font-weight: 600;
-     text-shadow: 0px 0px 1px #000;
+     text-shadow: 0px 0px 1px rgb(255, 255, 255);
 }
 
 .copy-wthree p a {
-    color: #fff;
+    color: rgb(0, 0, 0);
     transition: 0.5s all ease;
     -webkit-transition: 0.5s all ease;
     -moz-transition: 0.5s all ease;
@@ -501,7 +504,7 @@ input:checked+.slider:before {
 }
 
 .copy-wthree p a:hover {
-    color: #00ba9d;
+    color: #ffffff;
 }
 
 /*--//copyright--*/
@@ -580,5 +583,115 @@ header img {
   }
    
 .maindiv{
-    margin-top: 2%;
+    margin-top: 0;
 }
+
+
+
+
+.navbar {
+    background-color:black;
+    overflow: hidden;
+    height: 63px;
+    margin: 0;
+    padding: 0;
+
+}
+
+
+.navbar img {
+    max-width: 160px;
+    max-height: 90px;
+    padding-top: 10px;
+    padding-left: 20px;
+    cursor: pointer;
+}
+
+
+.navbar  span {
+    position: fixed;
+    padding: 16px;
+    padding-top: 5px;
+    padding-bottom: 20px;
+    border-radius: 0%;
+    top: 10px;
+    right: 50px;
+    margin-top: 5px;
+    color: black;
+    cursor: pointer;
+    background-color: transparent;
+    z-index: 500;
+    font-size: 1em; 
+}
+
+
+
+
+.side-nav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 500;
+    top: 0;
+    right: 0;
+    background-color: black;
+    opacity: 1;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
+    
+}
+
+.side-nav a {
+    padding: 10px  0px;
+    text-decoration: none;
+    font-size: 22px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.side-nav ul {
+    list-style: none;
+}
+
+
+.side-nav ul {
+    list-style: none;
+    padding: 15px 30px;
+  } 
+  
+
+
+.links::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: rgb(75, 73, 73);
+    transition: width 0.3s;
+}
+
+.links:hover::after {
+    width: 100%;
+    background: rgb(255, 255, 255);
+    transition: 0.3s;
+}
+
+.side-nav a:hover ::after {
+    width: 100%;
+    transition: 0.3s;
+}
+
+.side-nav .btn-close {
+    position:absolute;
+    top: 0;
+    font-size: 40px;
+}
+
+#slide-menu ul {
+    text-align: left;
+    margin-left: 10px;
+}
+
