@@ -3,7 +3,7 @@ const path = require("path");
 const chatbot = require("./chatbotController");
 
 exports.getMainPage = (req,res,next)=>{
-    res.render('homepage');
+    res.render('home');
 }
 exports.getAssociateWithUs = (req,res,next)=>{
     res.render('associate');

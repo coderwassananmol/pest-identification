@@ -1,7 +1,5 @@
 var mongoose = require ("mongoose");
 const Schema = mongoose.Schema;
-mongoose.connect('mongodb://localhost:27017/seheyogi', {useNewUrlParser: true});
-
 
 var pests = new Schema ({
     pestname: String,
@@ -87,5 +85,11 @@ module.exports.removePestsById = function(id){
 module.exports.updatePestById = function(id, data){
     Pests.findOneAndUpdate({_id:id}, data, function(err){
         if (err) return handleError(err);
+    })
+}
+
+module.exports.getPestByName = function(scientificname,callback) {
+    Pests.findOne({scientificname:scientificname},(err,res) => {
+        callback(res);
     })
 }

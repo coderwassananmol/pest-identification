@@ -2,10 +2,39 @@ const express = require('express');
 const model = require('../models/model');
 const router = express.Router();
 const path = require('path');
+const jwt = require('express-jwt');
 const sendotp = require("sendotp");
 const sendOtp = new sendotp('264616AHBGgQHd44Uq5c72d8ba'); //TODO: Use venv for keys, phone number and mails
-
 const phone = Number("7876862085"); //Enter the phone number here
+const getTokenFromHeaders = (req) => {
+    const { headers: { authorization } } = req;  
+    if(authorization && authorization.split(' ')[0] === 'Token') {
+      return authorization.split(' ')[1];
+    }
+    return null;
+  };
+  if (typeof localStorage === "undefined" || localStorage === null) {
+    var LocalStorage = require('node-localstorage').LocalStorage;
+    localStorage = new LocalStorage('./scratch');
+  }
+
+const getTokenFromParams = (req) => {
+    return localStorage.getItem('token');
+};
+
+  const auth = {
+    required: jwt({
+      secret: 'secret',
+      userProperty: 'payload',
+      getToken: getTokenFromParams,
+    }),
+    optional: jwt({
+      secret: 'secret',
+      userProperty: 'payload',
+      getToken: getTokenFromHeaders,
+      credentialsRequired: false,
+    }),
+  };
 
 //Temp get routes
 router.get('/addpest', function(req,res){
@@ -35,14 +64,6 @@ router.post('/verifyotp', function(req,res){
       if(data.type == 'success') {res.redirect('/editpest')};
       if(data.type == 'error') {res.redirect('/')};
   });
-});
-
-
-router.get('/editpest', function(req,res,next){
-    model.getAllPests(function(err,pests){
-        if(err) return next(err);
-        res.render('editpest', {'pests' : pests});
-    });
 });
 
 //Adding new pest
@@ -124,4 +145,4 @@ router.get('/editpest/delete/:id', function(req,res,next){
     setTimeout(res.redirect('/editpest'),1000);
 });
 
-module.exports = router;
+module.exports = {router, auth};

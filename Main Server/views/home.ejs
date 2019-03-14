@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrap-css"
+    />
+    <title>Upload an image</title>
+    <style>
+      .btn-file {
+        position: relative;
+        overflow: hidden;
+      }
+      .btn-file input[type="file"] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        min-width: 100%;
+        min-height: 100%;
+        font-size: 100px;
+        text-align: right;
+        filter: alpha(opacity=0);
+        opacity: 0;
+        outline: none;
+        background: white;
+        cursor: inherit;
+        display: block;
+      }
+
+      #img-upload {
+        width: 100%;
+      }
+
+      .loader {
+        border: 16px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 16px solid #3498db;
+        width: 120px;
+        height: 120px;
+        -webkit-animation: spin 2s linear infinite; /* Safari */
+        animation: spin 2s linear infinite;
+        margin: 0 auto;
+        margin-top: 200px;
+        display: none;
+      }
+
+      /* Safari */
+      @-webkit-keyframes spin {
+        0% {
+          -webkit-transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+        }
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">
+                &times;
+              </button>
+              <h4 class="modal-title">Prediction Result:</h4>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                  <b id="modaltext"></b>
+                </div>
+              </div>
+            <div class="row">
+              <div class="col-md-6">
+                <img
+                  id="modalimage"
+                  src="https://www.planetnatural.com/wp-content/uploads/2012/12/pest-problem.jpg"
+                />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <b>Accuracy:</b>
+              </div>
+              <div class="col-md-6">
+                <b id="modalaccuracy"></b>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <b>Pest identified as:</b>
+              </div>
+              <div class="col-md-6">
+                <b id="modalpest">Lepto</b>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-default"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Upload Image</label>
+          <div class="input-group">
+            <span class="input-group-btn">
+              <span class="btn btn-default btn-file">
+                Browse… <input type="file" id="imgInp" />
+              </span>
+            </span>
+            <input type="text" class="form-control" readonly />
+          </div>
+          <img id="img-upload" />
+          <button
+            type="button"
+            id="submit"
+            style="display: none;"
+            class="btn btn-primary"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+      <div class="loader"></div>
+    </div>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <!-- AWS Sdk -->
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.283.1.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $(document).on("change", ".btn-file :file", function() {
+          var input = $(this),
+            label = input
+              .val()
+              .replace(/\\/g, "/")
+              .replace(/.*\//, "");
+          input.trigger("fileselect", [label]);
+        });
+
+        $(".btn-file :file").on("fileselect", function(event, label) {
+          var input = $(this)
+              .parents(".input-group")
+              .find(":text"),
+            log = label;
+
+          if (input.length) {
+            input.val(log);
+          } else {
+            if (log) alert(log);
+          }
+        });
+
+        var filedata;
+        function readURL(input) {
+          if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+              $("#img-upload").attr("src", e.target.result);
+              filedata = e.target.result;
+            };
+
+            reader.readAsDataURL(input.files[0]);
+          }
+        }
+
+        $("#imgInp").change(function() {
+          readURL(this);
+          $("#submit").show();
+        });
+
+        $("#submit").on("click", function() {
+          var imageurl = "";
+          $(".loader").fadeIn(200);
+          fetch(`/upload`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              image: filedata
+            })
+          })
+            .then(resp => resp.json())
+            .then(resp => {
+              imageurl = resp.result.url;
+              var settings = {
+                async: true,
+                crossDomain: true,
+                url: "http://127.0.0.1:5000",
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                  "Cache-Control": "no-cache",
+                  "Postman-Token": "13e036a2-8487-4159-a16e-2b3229b9bab9",
+                  "Access-Control-Allow-Origin": "*"
+                },
+                processData: false,
+                data: `{\n\t"imageurl" : "${imageurl}"\n}`
+              };
+
+              $.ajax(settings).done(function(response) {
+                parsedJson = JSON.parse(response);
+                predicted_label =
+                  parsedJson.predictions[0].predictions[0].predicted_label;
+                predicted_score =
+                  parsedJson.predictions[0].predictions[0].predicted_score;
+                predicted_score = predicted_score * 100;
+                var predicted_label_temp = predicted_label
+                  .toLowerCase()
+                  .split(" ");
+                for (var i = 0; i < predicted_label_temp.length; i++) {
+                  // You do not need to check if i is larger than splitStr length, as your for does that for you
+                  // Assign it back to the array
+                  predicted_label_temp[i] =
+                  predicted_label_temp[i].charAt(0).toUpperCase() +
+                  predicted_label_temp[i].substring(1);
+                }
+                predicted_label = predicted_label_temp.join(' '); 
+                console.log(predicted_label);
+                $('#modalimage').attr('src',imageurl);
+                $('#modalpest').text(predicted_label);
+                $('#modalaccuracy').text(predicted_score);
+                if(predicted_score <= 70) {
+                  $('#modaltext').text("Aah! This doesn't look like a good match. Try uploading a better image.");
+                  $('#modalpest').text("None");
+                }
+                else {
+                  $('#modaltext').text("Cool! This looks like a good match.");
+                }
+                $(".loader").fadeOut();
+                $("#myModal").modal("show");
+              });
+            });
+        });
+      });
+    </script>
+  </body>
+</html>
